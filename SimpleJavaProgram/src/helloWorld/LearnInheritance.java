@@ -22,10 +22,6 @@ public class LearnInheritance {
 		obj.add(5, 7);
 		AdvCalc obj1 = new AdvCalc();
 		obj1.add(3, 303);
-		
-		
-		
-
 	}
 
 }
