@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author sadhithy
+ *
+ */
+module SimpleJavaProgram {
+}
