@@ -24,6 +24,7 @@ public class LearnInheritance {
 		obj1.add(3, 303);
 		
 		
+		
 
 	}
 
