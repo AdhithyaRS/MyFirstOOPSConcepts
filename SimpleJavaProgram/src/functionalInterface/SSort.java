@@ -26,6 +26,7 @@ public class SSort{
             }
         }
 
+        
     public static void main(String ar[]){
             SSort s=new SSort();
             int arr[]={65,25,12,22,11};
