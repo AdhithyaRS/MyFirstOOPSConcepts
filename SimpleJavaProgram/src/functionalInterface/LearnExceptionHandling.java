@@ -8,21 +8,34 @@ Types of errors:
 * Checked & Unchecked Exception
 
  */
+//@SuppressWarnings("serial")
+//We can create our own exception by entending to exception class
+class MilkyException extends Exception{
+	static final long serialVersionUID = -3387516993124229948L;
+	public MilkyException(String str) {
+		super(str);
+	}
+}
 public class LearnExceptionHandling {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int sum=0;
+		int sum=-1;
 		int[] num = new int[5];
 		try {
-			//sum=32/0;
-			num[5]=6;
+			sum=32/35;
+			num[3]=6;
+			if(sum == 0) throw new MilkyException("This is my own Exception");
+			
 		} catch (ArithmeticException e) {
 			// TODO: handle exception
-			System.out.println("You are trying to divide a number with zero");
+			if(sum!=0) System.out.println("You are trying to divide a number with zero");
+			else System.out.println("You are trying to divide a number greater than numerator");
 		} catch (IndexOutOfBoundsException e) {
 			// TODO: handle exception
 			System.out.println("You are trying to go beyond the array limits");
+		} catch(MilkyException e) {
+			System.out.println(e);
 		}
 		System.out.println(sum);
 		System.out.println("Bye");
