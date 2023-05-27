@@ -1,4 +1,11 @@
 package functionalInterface;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+
 /*
 Types of errors:
 * Compile time error
@@ -10,6 +17,26 @@ Types of errors:
  */
 //@SuppressWarnings("serial")
 //We can create our own exception by entending to exception class
+class xyz{
+	public int x() throws Exception {
+		
+		try {
+			y();
+		} catch (MilkyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		z();
+		return 10;
+	}
+	public void y() throws MilkyException{
+		
+	}
+	public void z() throws MilkyException{
+		
+	}
+}
+
 class MilkyException extends Exception{
 	static final long serialVersionUID = -3387516993124229948L;
 	public MilkyException(String str) {
@@ -18,11 +45,16 @@ class MilkyException extends Exception{
 }
 public class LearnExceptionHandling {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
 		int sum=-1;
 		int[] num = new int[5];
+		BufferedReader br = null;
 		try {
+			InputStreamReader in = new InputStreamReader(System.in);
+			br = new BufferedReader(in);
+			int getN = Integer.parseInt(br.readLine());
+			System.out.println("User input: "+ getN);
 			sum=32/35;
 			num[3]=6;
 			if(sum == 0) throw new MilkyException("This is my own Exception");
@@ -37,8 +69,22 @@ public class LearnExceptionHandling {
 		} catch(MilkyException e) {
 			System.out.println(e);
 		}
+		finally {
+			//finally is used when we want to execute some set of operation irrespective of exceptions arise or not
+			//It is useful to close an opened resource 
+			System.out.println("This line will be printed whatever happens");
+		 br.close();
+		}
+		
 		System.out.println(sum);
 		System.out.println("Bye");
+		xyz objA = new xyz();
+		try {
+			System.out.println(objA.x());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
